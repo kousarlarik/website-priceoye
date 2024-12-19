@@ -1,16 +1,22 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './Pages/Home/Home.jsx'
+import SignIn from './Components/SignIn/SignIn.jsx'
+import SignUp from './Components/SignUp/SignUp.jsx'
 
 
-import Header from './Components/Header/Header.jsx';
-import{ HeroSection} from './Components/HeroSection/HeroSection.jsx';
 
 
 function App() {
   return (
    <>
-   
- 
-    
+  <BrowserRouter>
+  <Routes>
+  <Route path="/" element={<Home/>}/>
+  <Route path="/signin" element={<SignIn/>}/>
+  <Route path="/signup" element={<SignUp/>}/>
+  </Routes>
+  </BrowserRouter>
     </>
   
   );
