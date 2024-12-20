@@ -1,77 +1,52 @@
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import MicIcon from '@mui/icons-material/Mic';
-import { Button, } from '@mui/material';
+import React, { useEffect, useState } from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import InputBase from "@mui/material/InputBase";
+import Badge from "@mui/material/Badge";
+import MenuItem from "@mui/material/MenuItem";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBars,
+  faEllipsisVertical,
+  faMicrophone,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faBell,
+  faCircleUser,
+  faEnvelope,
+} from "@fortawesome/free-regular-svg-icons";
+import { Button, Divider, Menu, Paper, Typography } from "@mui/material";
+import AppMenu from "./AppMenu";
+import { Link, useNavigate } from "react-router-dom";
+
+const Header = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("");
+  const navigate = useNavigate();
+
+  const userData = localStorage?.getItem("user");
+  const storedUser = JSON.parse(userData);
+
+  useEffect(() => {
 
 
-import Logo from '../../asest/logo.svg';
-import CartList from '../CartList/CartList';
+    if (storedUser) {
 
+      setIsLoggedIn(true)
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-}));
-
-export default function PrimarySearchAppBar() {
-  const [open, setOpen] = React.useState(false);
-
+    }
+    if (storedUser && storedUser.fullName) {
+      setUserName(storedUser.fullName);
+    }
+  }, []);
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
-
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -93,41 +68,58 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const menuId = 'primary-search-account-menu';
+  const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
+      className="mt-10 p-10"
       anchorEl={anchorEl}
       anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       id={menuId}
       keepMounted
       transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem><Link to={'account'}>My account</Link></MenuItem>
+      <Divider />
+      <MenuItem className="text-xs !important">Track my order</MenuItem>
+      <Divider />
+      <MenuItem className="text-xs">Launch a complaint</MenuItem>
+      <Divider />
+      <MenuItem className="text-xs">Notifications</MenuItem>
+      <Divider />
+      <MenuItem
+        className="text-xs"
+        onClick={() => {
+          localStorage.removeItem("user");
+          setIsLoggedIn(false);
+          navigate("/");
+        }}
+      >
+        Logout
+      </MenuItem>
     </Menu>
   );
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       id={mobileMenuId}
       keepMounted
       transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
@@ -135,10 +127,9 @@ export default function PrimarySearchAppBar() {
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
-            <MailIcon />
+            <FontAwesomeIcon icon={faEnvelope} />
           </Badge>
         </IconButton>
-        <p>Messages</p>
       </MenuItem>
       <MenuItem>
         <IconButton
@@ -147,12 +138,11 @@ export default function PrimarySearchAppBar() {
           color="inherit"
         >
           <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
+            <FontAwesomeIcon icon={faBell} />
           </Badge>
         </IconButton>
-        <p>Notifications</p>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
+      <MenuItem onMouseOver={handleProfileMenuOpen}>
         <IconButton
           size="large"
           aria-label="account of current user"
@@ -160,9 +150,8 @@ export default function PrimarySearchAppBar() {
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+          <FontAwesomeIcon icon={faCircleUser} />
         </IconButton>
-        <p>Profile</p>
       </MenuItem>
     </Menu>
   );
@@ -170,117 +159,117 @@ export default function PrimarySearchAppBar() {
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <AppBar
+          position="static"
+          className="py-2"
+          sx={{ backgroundColor: "#48afff" }}
+        >
+          <Toolbar>
             <IconButton
               size="large"
               edge="start"
               color="inherit"
               aria-label="open drawer"
-              sx={{ mr: 2 }}
             >
-              <MenuIcon onClick={toggleDrawer(true)} />
+              <FontAwesomeIcon icon={faBars} onClick={toggleDrawer(true)} />
             </IconButton>
-            <Box
-              component="img"
-              src={Logo}
-              alt="Logo"
-              sx={{
-                display: { xs: 'none', sm: 'block' },
-                height: 30,
-                width: 'auto'
-              }}
-            />
-
-
-            {/* Search Bar */}
-            <Box sx={{ display: 'flex', justifyContent: 'center', flexGrow: 5 }}>
-              <Search
-                style={{
-                  backgroundColor: 'white',
-                  padding: '1px',
-                  borderRadius: '4px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  width: '70%',
-
-                }}
+            <Link to={"/"}>
+              <img
+                className="w-32 md:w-36"
+                src="https://static.priceoye.pk/images/logo.svg"
+                alt=""
+              />
+            </Link>
+            <Box className="flex justify-center items-center h-full w-full">
+              <Paper
+                component="form"
+                className="flex justify-center items-center ml-2"
               >
-                <StyledInputBase
-                  placeholder="Search…"
-                  inputProps={{ 'aria-label': 'search' }}
-                  sx={{
-                    color: 'gray',
-                    width: '50%',
-                    marginLeft: 0
-                  }}
+                <InputBase
+                  className="md:w-96 px-4"
+                  placeholder="Search..."
+                  inputProps={{ "aria-label": "search google maps" }}
                 />
-
-                <MicIcon sx={{ color: '#0284c7' }} />
-              </Search>
+                <IconButton
+                  type="button"
+                  sx={{ p: "10px" }}
+                  aria-label="search"
+                >
+                  <FontAwesomeIcon
+                    className="text-[#48afff]"
+                    icon={faMicrophone}
+                  />
+                </IconButton>
+              </Paper>
             </Box>
-
-            {/* Account and other icons */}
             <Box sx={{ flexGrow: 1 }} />
             <Box
-              sx={{
-                display: { xs: 'none', md: 'flex' },
-                justifyContent: 'flex-end',
-                backgroundColor: '',
-                padding: 1,
-                borderRadius: 1
-              }}
+              sx={{ display: { xs: "none", md: "flex" } }}
+              className="flex items-center"
             >
-              <Button
-                variant="contained"
-                class="bg-white border-1 text-sky-400 border-transparent hover:bg-none hover:border-2 hover:text-white hover:border-white hover:bg-transparent px-3 py-2 rounded mx-3"
-              >
+              {!isLoggedIn ? (<Box className="flex gap-2">
+                <Button
+                  className="w-28 h-10"
+                  variant="contained"
+                  sx={{
+                    textTransform: "none",
+                    backgroundColor: "white",
+                    color: "#48afff",
+                    border: "1px solid #48afff",
+                    "&:hover": {
+                      backgroundColor: "transparent",
+                      color: "white",
+                      border: "1px solid white",
+                    },
+                    paddingX: 2,
+                    paddingY: 1,
+                  }}
+                >
+                  <Link to={"sign-in"}>Log in</Link>
+                </Button>
+                <Button
+                  className="w-28 h-10"
+                  variant="outlined"
+                  sx={{
+                    textTransform: "none",
+                    backgroundColor: "transparent",
+                    color: "white",
+                    border: "1px solid white",
+                    "&:hover": { backgroundColor: "white", color: "#48afff" },
+                    paddingX: 2,
+                    paddingY: 1,
+                  }}
+                >
+                  <Link to={"sign-up"}>Register</Link>
+                </Button>
+              </Box>
 
-                Login
-              </Button>
+              ) : (isLoggedIn && (
+                <Box className='flex items-center gap-2'>
+                  <IconButton
+                    size="large"
+                    edge="end"
+                    aria-label="account of current user"
+                    aria-controls={menuId}
+                    aria-haspopup="true"
+                    onMouseOver={handleProfileMenuOpen}
+                    color="inherit"
+                  >
+                    <FontAwesomeIcon icon={faCircleUser} />
+                  </IconButton>
 
-              {/* Register Button */}
-              <Button
-                variant="contained"
-                class=" border-1 text-white border-white hover:bg-white hover:border-2 hover:text-sky-400 hover:border-white hover:bg-transparent px-5 py-2 rounded mx-3"
-              >
-                Register
-              </Button>
+                  {userName && <Typography className="w-20">{userName}</Typography>}
 
-              {/* Account Circle Icon */}
-              <IconButton
-                size="small"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                sx={{
-                  color: 'blue'
-                }}
-              >
-                <AccountCircle />
-              </IconButton>
-            </Box>
-
-            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-              <IconButton
-                size="large"
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
+                </Box>))}
             </Box>
           </Toolbar>
         </AppBar>
+        {renderMobileMenu}
+        {renderMenu}
+        <AppMenu open={open} toggleDrawer={toggleDrawer} />
       </Box>
-      <CartList open={open} toggleDrawer={toggleDrawer}/>
     </>
-
   );
-}
+};
+
+export default Header;
