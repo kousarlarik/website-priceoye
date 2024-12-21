@@ -6,6 +6,9 @@ import Product from './product/Product'
 import { Box } from '@mui/material'
 import BestSellers from './best-sellers/BestSellers'
 
+import ProductSection from './productSectionT/ProductSection'
+import LatestMobiles from './LatestMobiles/LatestMobiles'
+
 const Home = () => {
   return (
     <>
@@ -17,6 +20,9 @@ const Home = () => {
       <Product/>
       <BestSellers/>
     </Box>
+   
+    <ProductSection/>
+    <LatestMobiles/>
     </>
   )
 }
