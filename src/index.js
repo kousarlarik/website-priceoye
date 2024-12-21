@@ -8,7 +8,8 @@ import SignUp from './Components/auth/sign-in/SignIn.jsx';
 import SignIn from './Components/auth/sign-up/SignUp.jsx';
 import MyAccount from './Components/my-account/MyAccount.jsx';
 import UpdateProfile from './Components/my-account/update-profile/UpdateProfile.jsx';
-import Protected from './Components/protected/Protected.jsx';
+import ProtectedRoute from './Components/protected/ProtectedRouted.jsx';
+
 
 const router = createBrowserRouter([
     {
@@ -29,12 +30,13 @@ const router = createBrowserRouter([
           },
           {
             path: "account",
-            element: <Protected> <MyAccount /></Protected>,
+            element: <ProtectedRoute> <MyAccount /></ProtectedRoute>,
           },
           {
-            path: "account/profile",
-            element: <Protected><UpdateProfile/></Protected> 
+            path: "/profile",
+            element: <ProtectedRoute><UpdateProfile/></ProtectedRoute> 
           }
+    
     
       ],
 

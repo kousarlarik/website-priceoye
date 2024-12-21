@@ -21,7 +21,7 @@ const LatestMobiles = () => {
     {
       id: 1,
       image:
-        "	https://images.priceoye.pk/g-tide-r1-smart-watch-pakistan-priceoye-xlubt-270x270.webp",
+        "https://images.priceoye.pk/realme-13-plus-5g-pakistan-priceoye-78si6-270x270.webp",
       title: "Redmi Buds 6 Active Wireless Earbuds",
       currentPrice: 4549,
       originalPrice: 7399,
@@ -32,7 +32,7 @@ const LatestMobiles = () => {
     {
       id: 2,
       image:
-        "https://images.priceoye.pk/mibro-watch-lite3-pro-pakistan-priceoye-v5v3v-270x270.webp",
+        "https://images.priceoye.pk/realme-13-plus-5g-pakistan-priceoye-78si6-270x270.webp",
       title: "Realme T100 Wireless Earbuds",
       currentPrice: 4999,
       originalPrice: 7000,
@@ -43,7 +43,7 @@ const LatestMobiles = () => {
     {
       id: 3,
       image:
-        "https://images.priceoye.pk/ultra-smart-watch-7-in-1-pakistan-priceoye-3ybh3-270x270.webp",
+        "	https://images.priceoye.pk/vivo-v40e-pakistan-priceoye-gylye-270x270.webp",
       title: "Nothing Buds Pro 2",
       currentPrice: 13499,
       originalPrice: 20000,
@@ -54,7 +54,7 @@ const LatestMobiles = () => {
     {
       id: 4,
       image:
-        "https://images.priceoye.pk/realme-watch-pakistan-priceoye-g61ky-270x270.webp",
+        "https://images.priceoye.pk/xiaomi-redmi-a3-pakistan-priceoye-z5m8c-270x270.webp",
       title: "Anker R50i Earbuds",
       currentPrice: 4611,
       originalPrice: 7199,
@@ -65,7 +65,7 @@ const LatestMobiles = () => {
     {
       id: 5,
       image:
-        "https://images.priceoye.pk/mibro-watch-lite-3-pakistan-priceoye-nq89u-270x270.webp",
+        "https://images.priceoye.pk/samsung-galaxy-a55-5g-pakistan-priceoye-d66z3-270x270.webp",
       title: "Soundpeats Engine4 Wireless Earbuds",
       currentPrice: 10518,
       originalPrice: 14000,
@@ -76,7 +76,7 @@ const LatestMobiles = () => {
     {
       id: 6,
       image:
-        "https://images.priceoye.pk/mibro-watch-lite3-pro-pakistan-priceoye-v5v3v-270x270.webp",
+        "https://images.priceoye.pk/tecno-spark-30-pakistan-priceoye-rcs5e-270x270.webp",
       title: "Samsung Galaxy Buds 3 Pro ",
       currentPrice: 49799,
       originalPrice: 69999,
@@ -88,7 +88,7 @@ const LatestMobiles = () => {
     {
       id: 7,
       image:
-        "https://images.priceoye.pk/qcy-t13-anc-2-pakistan-priceoye-uvlbc-270x270.webp",
+        "https://images.priceoye.pk/itel-s24-pakistan-priceoye-sabyj-270x270.webp",
       title: "QCY T13 ANC 2",
       currentPrice: 5499,
       originalPrice: 6000,
@@ -99,7 +99,7 @@ const LatestMobiles = () => {
     {
       id: 8,
       image:
-        "https://images.priceoye.pk/realme-watch-pakistan-priceoye-g61ky-270x270.webp",
+        "https://images.priceoye.pk/realme-c61-pakistan-priceoye-v5h3g-270x270.webp",
       title: "Realme Buds T110",
       currentPrice: 4999,
       originalPrice: 10500,
@@ -110,7 +110,7 @@ const LatestMobiles = () => {
     {
       id: 9,
       image:
-        "https://images.priceoye.pk/audionic-airbud-550-pakistan-priceoye-o6fve-270x270.webp",
+        "https://images.priceoye.pk/oppo-a3-pakistan-priceoye-hn4ho-270x270.webp",
       title: "Audionic Airbud 550",
       currentPrice: 3811,
       originalPrice: 9990,
@@ -121,7 +121,7 @@ const LatestMobiles = () => {
     {
       id: 10,
       image:
-        "	https://images.priceoye.pk/samsung-galaxy-watch-6-classic-43mm-pakistan-priceoye-15dli-270x270.webp",
+        "https://images.priceoye.pk/oppo-a3-pakistan-priceoye-hn4ho-270x270.webp",
       title: "Imiki MT2 Wireless Erbuds",
       currentPrice: 3899,
       originalPrice: 6999,
