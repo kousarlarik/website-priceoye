@@ -141,7 +141,7 @@ const LatestMobiles = () => {
 
      <Box
         sx={{
-          backgroundImage: `url('https://static.priceoye.pk/images/categories/section-smart-watches-bg.png')`,
+          backgroundImage: `url('https://static.priceoye.pk/images/categories/section-mobiles-bg-md.png')`,
           backgroundSize: "cover",
           marginTop: "100px",
           backgroundPosition: "center",
