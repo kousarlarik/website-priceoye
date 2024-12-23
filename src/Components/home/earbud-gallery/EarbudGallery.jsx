@@ -8,7 +8,7 @@ import "swiper/css/grid";
 import "swiper/css/navigation";
 import "./swiper.css";
 
-// import required modules
+
 import { Grid } from "swiper/modules";
 import { Navigation } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

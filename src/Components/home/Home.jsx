@@ -10,6 +10,7 @@ import ProductSection from './productSectionT/ProductSection'
 import LatestMobiles from './LatestMobiles/LatestMobiles'
 import ShopByPrice from './ShopbyPrice/ShopbyPrice'
 import CustomerReviews from './CustomerReviews/CustomerReview'
+import ReasonToBy from './ReasonToBuy/ReasonToBuy'
 
 const Home = () => {
   return (
@@ -27,6 +28,8 @@ const Home = () => {
     <LatestMobiles/>
     <ShopByPrice/>
     <CustomerReviews/>
+    <ReasonToBy/>
+    
     </>
   )
 }
