@@ -2,7 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedRouted = ({ children }) => {
   const isLoggedIn = localStorage.getItem("user");
   const navigate = useNavigate();
 
@@ -31,4 +31,4 @@ const ProtectedRoute = ({ children }) => {
   return <div>{children}</div>;
 };
 
-export default ProtectedRoute;
+export default ProtectedRouted;

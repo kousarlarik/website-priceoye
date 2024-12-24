@@ -8,7 +8,7 @@ import SignUp from './Components/auth/sign-in/SignIn.jsx';
 import SignIn from './Components/auth/sign-up/SignUp.jsx';
 import MyAccount from './Components/my-account/MyAccount.jsx';
 import UpdateProfile from './Components/my-account/update-profile/UpdateProfile.jsx';
-import ProtectedRoute from './Components/protected/ProtectedRouted.jsx';
+import ProtectedRouted from './Components/protected/ProtectedRouted.jsx';
 
 
 const router = createBrowserRouter([
@@ -30,11 +30,11 @@ const router = createBrowserRouter([
           },
           {
             path: "account",
-            element: <ProtectedRoute> <MyAccount /></ProtectedRoute>,
+            element: <ProtectedRouted> <MyAccount /></ProtectedRouted>,
           },
           {
             path: "/profile",
-            element: <ProtectedRoute><UpdateProfile/></ProtectedRoute> 
+            element: <ProtectedRouted><UpdateProfile/></ProtectedRouted> 
           }
     
     

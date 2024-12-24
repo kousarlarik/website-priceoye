@@ -12,6 +12,7 @@ import ShopByPrice from './ShopbyPrice/ShopbyPrice'
 import CustomerReviews from './CustomerReviews/CustomerReview'
 import ReasonToBy from './ReasonToBuy/ReasonToBuy'
 
+
 const Home = () => {
   return (
     <>
@@ -29,6 +30,7 @@ const Home = () => {
     <ShopByPrice/>
     <CustomerReviews/>
     <ReasonToBy/>
+   
     
     </>
   )
