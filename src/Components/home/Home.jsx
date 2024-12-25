@@ -11,6 +11,9 @@ import LatestMobiles from './LatestMobiles/LatestMobiles'
 import ShopByPrice from './ShopbyPrice/ShopbyPrice'
 import CustomerReviews from './CustomerReviews/CustomerReview'
 import ReasonToBy from './ReasonToBuy/ReasonToBuy'
+import LatestTrimmers from './Latest Trimmers/LatestTrimmers'
+import BrandLogo from './brandLogo/BrandLogo'
+import Footer from './Footer/Footer'
 
 
 const Home = () => {
@@ -30,9 +33,10 @@ const Home = () => {
     <ShopByPrice/>
     <CustomerReviews/>
     <ReasonToBy/>
-   
-    
-    </>
+    <LatestTrimmers/>
+    <BrandLogo/>
+    <Footer/>
+   </>
   )
 }
 

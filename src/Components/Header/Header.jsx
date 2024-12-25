@@ -18,7 +18,7 @@ import {
   faEnvelope,
 } from "@fortawesome/free-regular-svg-icons";
 import { Button, Divider, Menu, Paper, Typography } from "@mui/material";
-import AppMenu from "./AppMenu";
+import AppMenu from "../Header/AppMenu";
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
