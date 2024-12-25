@@ -8,6 +8,15 @@ import "swiper/css/navigation";
 import { Grid } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import Image2 from '../../../assets/img2.webp'
+import Image3 from '../../../assets/img3.webp'
+import Image4 from '../../../assets/img4.webp'
+import Image5 from '../../../assets/img5.webp'
+import Image6 from '../../../assets/img6.webp'
+import Image7 from '../../../assets/img7.webp'
+import Image8 from '../../../assets/img8.webp'
+import Image9 from '../../../assets/img9.webp'
+import Image10 from '../../../assets/imge10.webp'
 import { Navigation}  from 'swiper/modules';
 
 
@@ -25,9 +34,8 @@ const LatestTrimmers = () => {
       reviews: 17,
     },
     {
-      id: 2,
-      image:
-        "https://images.priceoye.pk/kemei-3-in-1-rechargeab…mmer-km-6332-pakistan-priceoye-l0abn-270x270.webp",
+      id:Image2,
+      image:Image2,
       title: "Realme T100 Wireless Earbuds",
       currentPrice: 4999,
       originalPrice: 7000,
@@ -37,8 +45,7 @@ const LatestTrimmers = () => {
     },
     {
       id: 3,
-      image:
-        "https://images.priceoye.pk/kemei-km-6331-3-in-1-gr…usb-charging-pakistan-priceoye-v2fgq-270x270.webp",
+      image:Image3,
       title: "Nothing Buds Pro 2",
       currentPrice: 13499,
       originalPrice: 20000,
@@ -48,8 +55,7 @@ const LatestTrimmers = () => {
     },
     {
       id: 4,
-      image:
-        "https://images.priceoye.pk/dinglong-professional-b…immer-rf-609-pakistan-priceoye-gu6ki-270x270.webp",
+      image:Image4,
       title: "Anker R50i Earbuds",
       currentPrice: 4611,
       originalPrice: 7199,
@@ -59,8 +65,7 @@ const LatestTrimmers = () => {
     },
     {
       id: 5,
-      image:
-        "https://images.priceoye.pk/dingling-professional-rf-608b-pakistan-priceoye-47iad-270x270.webp",
+      image:Image5,
       title: "Soundpeats Engine4 Wireless Earbuds",
       currentPrice: 10518,
       originalPrice: 14000,
@@ -70,8 +75,7 @@ const LatestTrimmers = () => {
     },
     {
       id: 6,
-      image:
-        "https://images.priceoye.pk/mi-hair-clipper-pakistan-priceoye-nwoxh-270x270.webp",
+      image:Image6,
       title: "Samsung Galaxy Buds 3 Pro ",
       currentPrice: 49799,
       originalPrice: 69999,
@@ -82,8 +86,7 @@ const LatestTrimmers = () => {
 
     {
       id: 7,
-      image:
-        "https://images.priceoye.pk/kemei-km-1613-hair-clip…tric-trimmer-pakistan-priceoye-1b36i-270x270.webp",
+      image:Image7,
       title: "QCY T13 ANC 2",
       currentPrice: 5499,
       originalPrice: 6000,
@@ -93,8 +96,7 @@ const LatestTrimmers = () => {
     },
     {
       id: 8,
-      image:
-        "https://images.priceoye.pk/vgr-stainless-steel-bla…rimmer-v-031-pakistan-priceoye-qyjpu-270x270.webp",
+      image:Image8,
       title: "Realme Buds T110",
       currentPrice: 4999,
       originalPrice: 10500,
@@ -104,8 +106,7 @@ const LatestTrimmers = () => {
     },
     {
       id: 9,
-      image:
-        "https://images.priceoye.pk/oppo-a3-pakistan-priceoye-hn4ho-270x270.webp",
+      image:Image9,
       title: "Audionic Airbud 550",
       currentPrice: 3811,
       originalPrice: 9990,
@@ -115,8 +116,7 @@ const LatestTrimmers = () => {
     },
     {
       id: 10,
-      image:
-        "https://images.priceoye.pk/oppo-a3-pakistan-priceoye-hn4ho-270x270.webp",
+      image:Image10,
       title: "Imiki MT2 Wireless Erbuds",
       currentPrice: 3899,
       originalPrice: 6999,
