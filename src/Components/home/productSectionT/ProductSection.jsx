@@ -1,21 +1,23 @@
 import { Box, Button, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/navigation";
-// import "./swiper.css";
 import { Grid } from "swiper/modules";
 import { Navigation } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const ProductSection = () => {
+  const navigate = useNavigate();
+
   const product = [
     {
       id: 1,
       image:
-        "	https://images.priceoye.pk/g-tide-r1-smart-watch-pakistan-priceoye-xlubt-270x270.webp",
+        "https://images.priceoye.pk/g-tide-r1-smart-watch-pakistan-priceoye-xlubt-270x270.webp",
       title: "Redmi Buds 6 Active Wireless Earbuds",
       currentPrice: 4549,
       originalPrice: 7399,
@@ -115,7 +117,7 @@ const ProductSection = () => {
     {
       id: 10,
       image:
-        "	https://images.priceoye.pk/samsung-galaxy-watch-6-classic-43mm-pakistan-priceoye-15dli-270x270.webp",
+        "https://images.priceoye.pk/samsung-galaxy-watch-6-classic-43mm-pakistan-priceoye-15dli-270x270.webp",
       title: "Imiki MT2 Wireless Erbuds",
       currentPrice: 3899,
       originalPrice: 6999,
@@ -125,10 +127,13 @@ const ProductSection = () => {
     },
   ];
 
+  const handleProductClick = (id) => {
+    navigate(`/product/${id}`);
+  };
+
   return (
-    <>
-     <Box className="bg-gray-200">
-     <Box
+    <Box className="bg-gray-200">
+      <Box
         sx={{
           backgroundImage: `url('https://static.priceoye.pk/images/categories/section-smart-watches-bg.png')`,
           backgroundSize: "cover",
@@ -139,8 +144,8 @@ const ProductSection = () => {
         className="w-[100%] h-[300px] lg:h-[450px] mb-52"
       >
         <Box className="container mx-auto pt-7 mb:pt-16 pb-7 flex justify-between items-center px-3">
-          <Typography className="text-white"variant="h5">
-          Latest Mobiles
+          <Typography className="text-white" variant="h5">
+            Latest Mobiles
           </Typography>
           <Button
             className="!text-black !bg-white !hover:text-slate-300 !capitalize"
@@ -178,6 +183,7 @@ const ProductSection = () => {
             <SwiperSlide
               key={item.id}
               className="bg-white rounded-lg mx-3 !w-72 !px-5 cursor-pointer drop-shadow-md"
+              onClick={() => handleProductClick(item.id)}
             >
               <Box className="flex flex-col justify-center items-center !mt-5">
                 <Box className="text-center">
@@ -220,9 +226,9 @@ const ProductSection = () => {
           ))}
         </Swiper>
       </Box>
-     </Box>
-    </>
+    </Box>
   );
 };
 
 export default ProductSection;
+   
