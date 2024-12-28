@@ -9,10 +9,13 @@ import SignIn from './Components/auth/sign-up/SignUp.jsx';
 import MyAccount from './Components/my-account/MyAccount.jsx';
 import UpdateProfile from './Components/my-account/update-profile/UpdateProfile.jsx';
 import ProtectedRouted from './Components/protected/ProtectedRouted.jsx';
-import ProductSection from './Components/home/productSectionT/ProductSection.jsx';
-import ProductDetails from './Components/ProductDetails/ProductDetails.jsx';
+import ProductSection from './Components/home/productSection2/productSection2/ProductSection.jsx';
+import ProductDetail from './Components/home/productSection2/productSection2/ProductDetail.jsx';
+import CheckoutForm from './Components/checkout/CheckoutForm.jsx';
+import OrderComplete from './Components/order/OrderComplete.jsx';
+import { ProductProvider } from './Components/context/ProductContext.js';
+import { CheckoutProvider } from './Components/context/CheckoutContext.js';
 
-// Correctly configured routes
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,7 +47,15 @@ const router = createBrowserRouter([
       },
       {
         path: "product/:id",
-        element: <ProductDetails />,
+        element: <ProductDetail />,
+      },
+      {
+        path: "checkout",
+        element: <CheckoutForm />,
+      },
+      {
+        path: "order-complete",
+        element: <OrderComplete />,
       },
     ],
   },
@@ -52,5 +63,9 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <RouterProvider router={router} />
+  <CheckoutProvider>
+    <ProductProvider>
+      <RouterProvider router={router} />
+    </ProductProvider>
+  </CheckoutProvider>
 );

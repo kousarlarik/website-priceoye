@@ -6,7 +6,7 @@ import Product from './product/Product'
 import { Box } from '@mui/material'
 import BestSellers from './best-sellers/BestSellers'
 
-import ProductSection from './productSectionT/ProductSection'
+import ProductSection from './productSection2/productSection2/ProductSection';
 import LatestMobiles from './LatestMobiles/LatestMobiles'
 import ShopByPrice from './ShopbyPrice/ShopbyPrice'
 import CustomerReviews from './CustomerReviews/CustomerReview'
@@ -32,6 +32,7 @@ const Home = () => {
     <LatestMobiles/>
     <ShopByPrice/>
     <CustomerReviews/>
+    
     <ReasonToBy/>
     <LatestTrimmers/>
     <BrandLogo/>
