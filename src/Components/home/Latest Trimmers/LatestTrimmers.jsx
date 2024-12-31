@@ -142,7 +142,7 @@ const LatestTrimmers = () => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        className="w-[100%] h-[300px] lg:h-[450px] mb-52"
+        className="w-[100%] h-[300px] lg:h-[450px] mb-80"
       >
         <Box className="container mx-auto pt-7 mb:pt-16 pb-7 flex justify-between items-center px-3">
           <Typography className="text-white"variant="h5">

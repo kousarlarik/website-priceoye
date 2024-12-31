@@ -1,9 +1,8 @@
-import { Margin } from "@mui/icons-material";
 import React from "react";
 
 const ShopByPrice = () => {
   return (
-    <div sx={{marginTop: "200px",}} className="px-6 py-8 bg-gray-50">
+    <div style={{ marginTop: "300px" }} className="px-6 py-8 bg-gray-50">
       {/* Shop by Price Text */}
       <div className="flex justify-start mb-4">
         <h2 className="text-xl font-semibold text-gray-700">Shop by Price</h2>

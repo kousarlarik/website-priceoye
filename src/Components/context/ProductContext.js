@@ -1,4 +1,4 @@
-// filepath: /E:/React Capstone/my-capstone/src/Components/context/ProductContext.js
+
 import React, { createContext, useContext, useState } from "react";
 
 const ProductContext = createContext();
