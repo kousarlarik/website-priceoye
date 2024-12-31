@@ -3,18 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Layout from './Components/layout/layout.jsx';
-import SignUp from './Components/auth/sign-in/SignIn.jsx';
-import SignIn from './Components/auth/sign-up/SignUp.jsx';
-import MyAccount from './Components/my-account/MyAccount.jsx';
-import UpdateProfile from './Components/my-account/update-profile/UpdateProfile.jsx';
-import ProtectedRouted from './Components/protected/ProtectedRouted.jsx';
-import ProductSection from './Components/home/productSection2/productSection2/ProductSection.jsx';
-import ProductDetail from './Components/home/productSection2/productSection2/ProductDetail.jsx';
-import CheckoutForm from './Components/checkout/CheckoutForm.jsx';
-import OrderComplete from './Components/order/OrderComplete.jsx';
-import { ProductProvider } from './Components/context/ProductContext.js';
-import { CheckoutProvider } from './Components/context/CheckoutContext.js';
+import Layout from './Components/layout/layout';
+import SignUp from './Components/auth/sign-in/SignIn';
+import SignIn from './Components/auth/sign-up/SignUp';
+import MyAccount from './Components/my-account/MyAccount';
+import UpdateProfile from './Components/my-account/update-profile/UpdateProfile';
+import ProtectedRouted from './Components/protected/ProtectedRouted';
+import ProductSection from './Components/home/productSection2/productSection2/ProductSection';
+import ProductDetail from './Components/home/productSection2/productSection2/ProductDetail';
+import CheckoutForm from './Components/checkout/CheckoutForm';
+import OrderComplete from './Components/order/OrderComplete';
+import EarbudGallery from './Components/home/earbud-gallery/EarbudGallery';
+import EarbudDetail from './Components/home/earbud-gallery/EarbudDetail';
+import { ProductProvider } from './Components/context/ProductContext';
+import { CheckoutProvider } from './Components/context/CheckoutContext';
 
 const router = createBrowserRouter([
   {
@@ -56,6 +58,14 @@ const router = createBrowserRouter([
       {
         path: "order-complete",
         element: <OrderComplete />,
+      },
+      {
+        path: "earbud-gallery",
+        element: <EarbudGallery />,
+      },
+      {
+        path: "earbud/:id",
+        element: <EarbudDetail />,
       },
     ],
   },
