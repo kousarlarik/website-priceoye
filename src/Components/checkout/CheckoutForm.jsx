@@ -7,16 +7,20 @@ import {
   Step,
   Stepper,
   StepLabel,
+  IconButton,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import { useCheckoutContext } from "../context/CheckoutContext";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { useSelector, useDispatch } from "react-redux";
+import { selectCartItems, removeFromCart } from "../../redux/cartSlice"; // Correct import path
 
 const steps = ["OTP Verification", "Contact Info", "Delivery", "Payment"];
 
 const CheckoutForm = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const { setCheckoutData } = useCheckoutContext();
+  const cartItems = useSelector(selectCartItems);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -35,18 +39,27 @@ const CheckoutForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (cartItems.length === 0) {
+      alert("Your cart is empty. Please add products to the cart.");
+      return;
+    }
     if (activeStep < steps.length - 1) {
       setActiveStep((prev) => prev + 1);
     } else {
-      setCheckoutData(formData);
+      // Logic to set checkout data and track order
+      console.log("Order tracked:", { ...formData, cartItems });
       navigate("/order-complete");
     }
   };
 
+  const handleRemove = (id) => {
+    dispatch(removeFromCart(id));
+  };
+
   return (
     <Box className="min-h-screen bg-gray-50 py-8">
-      <Box className="container mx-auto px-4">
-        <Box className="max-w-3xl mx-auto bg-white rounded-xl shadow-sm p-6">
+      <Box className="container mx-auto px-4 flex">
+        <Box className="max-w-3xl mx-auto bg-white rounded-xl shadow-sm p-6 flex-1">
           <Stepper activeStep={activeStep} className="mb-8">
             {steps.map((label) => (
               <Step key={label}>
@@ -136,6 +149,20 @@ const CheckoutForm = () => {
               {activeStep === steps.length - 1 ? "Complete Order" : "Continue"}
             </Button>
           </form>
+        </Box>
+        <Box className="w-80 mx-auto bg-white rounded-xl shadow-sm p-6 ml-4"> {/* Set width */}
+          <Typography variant="h6" className="mb-4">Cart Summary</Typography>
+          <Box className="space-y-4">
+            {cartItems.map((item, index) => (
+              <Box key={index} className="flex items-center gap-4">
+                <img src={item.image} alt={item.title} className="w-16 h-16 object-contain" />
+                <Typography>{item.title} - Rs {item.currentPrice}</Typography>
+                <IconButton onClick={() => handleRemove(item.id)}>
+                  <DeleteIcon />
+                </IconButton>
+              </Box>
+            ))}
+          </Box>
         </Box>
       </Box>
     </Box>

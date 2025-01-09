@@ -106,19 +106,11 @@ const AppMenu = ({ open, onClose }) => {
     setExpandedCategory(expandedCategory === categoryName ? null : categoryName);
   };
 
-  const handleDrawerClose = () => {
-    if (typeof onClose === 'function') {
-      onClose();
-    } else {
-      console.error('onClose is not a function');
-    }
-  };
-
   return (
     <Drawer
       anchor="left"
       open={open}
-      onClose={handleDrawerClose} // Use handleDrawerClose here
+      onClose={onClose}
       PaperProps={{
         sx: { width: 350, backgroundColor: "#f7f7f7", padding: "16px 0" },
       }}
@@ -139,7 +131,7 @@ const AppMenu = ({ open, onClose }) => {
           style={{ height: "40px", marginLeft: "16px" }}
         />
         <IconButton
-          onClick={handleDrawerClose} // Use handleDrawerClose here
+          onClick={onClose}
           style={{ color: "black", borderRadius: "50%" }}
         >
           <Close />

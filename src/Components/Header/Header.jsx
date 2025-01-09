@@ -170,9 +170,8 @@ const Header = () => {
               edge="start"
               color="inherit"
               aria-label="open drawer"
-              onClick={toggleDrawer(true)} // Ensure the drawer opens on click
             >
-              <FontAwesomeIcon icon={faBars} />
+              <FontAwesomeIcon icon={faBars} onClick={toggleDrawer(true)} />
             </IconButton>
             <Link to={"/"}>
               <img
@@ -267,7 +266,7 @@ const Header = () => {
         </AppBar>
         {renderMobileMenu}
         {renderMenu}
-        <AppMenu open={open} toggleDrawer={toggleDrawer} onClose={toggleDrawer(false)} /> {/* Ensure the drawer closes on click */}
+        <AppMenu open={open} toggleDrawer={toggleDrawer} />
       </Box>
     </>
   );

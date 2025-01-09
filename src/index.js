@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App'; 
+import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './Components/layout/layout';
 import SignUp from './Components/auth/sign-in/SignIn';
@@ -17,6 +17,8 @@ import EarbudGallery from './Components/home/earbud-gallery/EarbudGallery';
 import EarbudDetail from './Components/home/earbud-gallery/EarbudDetail';
 import { ProductProvider } from './Components/context/ProductContext';
 import { CheckoutProvider } from './Components/context/CheckoutContext';
+import { Provider } from "react-redux";
+import store from "./store";
 
 const router = createBrowserRouter([
   {
@@ -73,9 +75,11 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <CheckoutProvider>
-    <ProductProvider>
-      <RouterProvider router={router} />
-    </ProductProvider>
-  </CheckoutProvider>
+  <Provider store={store}>
+    <CheckoutProvider>
+      <ProductProvider>
+        <RouterProvider router={router} />
+      </ProductProvider>
+    </CheckoutProvider>
+  </Provider>
 );

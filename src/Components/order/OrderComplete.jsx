@@ -1,15 +1,27 @@
 import React from "react";
 import { Box, Button, Typography, Paper } from "@mui/material";
 import PrintIcon from "@mui/icons-material/Print";
-import { useProductContext } from "../context/ProductContext";
 import { useCheckoutContext } from "../context/CheckoutContext";
+import { useSelector } from "react-redux";
+import { selectCartItems } from "../../redux/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const OrderComplete = () => {
-  const { selectedProduct } = useProductContext();
   const { checkoutData } = useCheckoutContext();
+  const cartItems = useSelector(selectCartItems);
+  const navigate = useNavigate();
 
-  if (!selectedProduct) {
-    return <Typography>No product added to cart.</Typography>;
+  if (cartItems.length === 0) {
+    return (
+      <Box className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+        <Typography variant="h4" className="mb-4">
+          No product added to cart.
+        </Typography>
+        <Button variant="contained" onClick={() => navigate("/")}>
+          Go to Home
+        </Button>
+      </Box>
+    );
   }
 
   return (
@@ -22,7 +34,7 @@ const OrderComplete = () => {
             </Typography>
             <Box className="bg-blue-500 text-white p-4 rounded-lg">
               <Typography variant="h6">
-                Order Number 1553473, {selectedProduct.title}
+                Order Number 1553473
               </Typography>
             </Box>
           </Box>
@@ -88,29 +100,30 @@ const OrderComplete = () => {
                 Order Summary
               </Typography>
               <Box className="space-y-4">
-                <Box className="flex gap-4">
-                  <img
-                    src={selectedProduct.image}
-                    alt={selectedProduct.title}
-                    className="w-20 h-20 rounded-lg"
-                  />
-                  <Box>
-                    <Typography variant="subtitle1">{selectedProduct.title}</Typography>
-                    <Typography color="textSecondary">Color: {selectedProduct.color}</Typography>
-                    <Typography color="textSecondary">
-                      {selectedProduct.storage} - {selectedProduct.ram} RAM
-                    </Typography>
+                {cartItems.map((item, index) => (
+                  <Box key={index} className="flex gap-4">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-20 h-20 rounded-lg"
+                    />
+                    <Box>
+                      <Typography variant="subtitle1">{item.title}</Typography>
+                      <Typography color="textSecondary">Color: {item.color}</Typography>
+                      <Typography color="textSecondary">
+                        {item.storage} - {item.ram} RAM
+                      </Typography>
+                    </Box>
                   </Box>
-                </Box>
-
+                ))}
                 <Box className="space-y-2 border-t pt-4">
                   <Box className="flex justify-between">
                     <Typography>Market Price</Typography>
-                    <Typography className="line-through">Rs {selectedProduct.originalPrice}</Typography>
+                    <Typography className="line-through">Rs {cartItems.reduce((total, item) => total + item.originalPrice, 0)}</Typography>
                   </Box>
                   <Box className="flex justify-between">
                     <Typography>Sale Price</Typography>
-                    <Typography>Rs {selectedProduct.currentPrice}</Typography>
+                    <Typography>Rs {cartItems.reduce((total, item) => total + item.currentPrice, 0)}</Typography>
                   </Box>
                   <Box className="flex justify-between text-green-600">
                     <Typography>Delivery Charges</Typography>
@@ -118,11 +131,11 @@ const OrderComplete = () => {
                   </Box>
                   <Box className="flex justify-between text-green-600">
                     <Typography>You're saving</Typography>
-                    <Typography>Rs {selectedProduct.originalPrice - selectedProduct.currentPrice} on this order</Typography>
+                    <Typography>Rs {cartItems.reduce((total, item) => total + (item.originalPrice - item.currentPrice), 0)} on this order</Typography>
                   </Box>
                   <Box className="flex justify-between font-medium pt-2 border-t">
                     <Typography>Total Price</Typography>
-                    <Typography>Rs {selectedProduct.currentPrice}</Typography>
+                    <Typography>Rs {cartItems.reduce((total, item) => total + item.currentPrice, 0)}</Typography>
                   </Box>
                 </Box>
               </Box>
