@@ -185,8 +185,8 @@ const LatestMobiles = () => {
               className="bg-white rounded-lg mx-3 !w-72 !px-5 cursor-pointer drop-shadow-md"
             >
               <Box className="flex flex-col justify-center items-center !mt-5">
-                <Box className="text-center border border-gray-300 shadow-lg p-4"> {/* Add padding */}
-                  <img className="w-28" src={item.image} alt={item.title} /> {/* Increase width */}
+                <Box className="text-center">
+                  <img className="w-28" src={item.image} alt={item.title} />
                   <Box className="flex items-center bg-[#FBF7EB] px-2 rounded-full relative -left-16 -top-2">
                     <Typography className="!text-sm">
                       {" "}
