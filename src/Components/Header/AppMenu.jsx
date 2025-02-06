@@ -28,8 +28,7 @@ import {
   Power,
   Speaker,
 } from "@mui/icons-material";
-
-import logo from '../../assets/logo.svg'
+import logo from '../../assets/logo.svg';
 
 const categories = [
   {
@@ -114,6 +113,9 @@ const AppMenu = ({ open, onClose }) => {
       PaperProps={{
         sx: { width: 350, backgroundColor: "#f7f7f7", padding: "16px 0" },
       }}
+      ModalProps={{
+        onBackdropClick: onClose, 
+      }}
     >
       {/* Header Section with Logo */}
       <div
@@ -146,31 +148,31 @@ const AppMenu = ({ open, onClose }) => {
           padding: "0 16px",
         }}
       >
-        <ListItem>
+        <ListItem button onClick={() => onClose()}>
           <ListItemIcon style={{ color: "#fff" }}>
             <AccountCircle />
           </ListItemIcon>
           <ListItemText primary="My Account" />
         </ListItem>
-        <ListItem>
+        <ListItem button onClick={() => onClose()}>
           <ListItemIcon style={{ color: "#fff" }}>
             <LocalShipping />
           </ListItemIcon>
           <ListItemText primary="Track my Order" />
         </ListItem>
-        <ListItem>
+        <ListItem button onClick={() => onClose()}>
           <ListItemIcon style={{ color: "#fff" }}>
             <ErrorOutline />
           </ListItemIcon>
           <ListItemText primary="Launch a Complaint" />
         </ListItem>
-        <ListItem>
+        <ListItem button onClick={() => onClose()}>
           <ListItemIcon style={{ color: "#fff" }}>
             <Notifications />
           </ListItemIcon>
           <ListItemText primary="Notifications" />
         </ListItem>
-        <ListItem>
+        <ListItem button onClick={() => onClose()}>
           <ListItemIcon style={{ color: "#fff" }}>
             <Logout />
           </ListItemIcon>
@@ -200,7 +202,7 @@ const AppMenu = ({ open, onClose }) => {
             <Collapse in={expandedCategory === category.name} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 {category.subcategories.map((subcategory) => (
-                  <ListItem key={subcategory} sx={{ pl: 4 }}>
+                  <ListItem button onClick={() => onClose()} key={subcategory} sx={{ pl: 4 }}>
                     <ListItemText primary={subcategory} />
                   </ListItem>
                 ))}
@@ -249,7 +251,7 @@ const AppMenu = ({ open, onClose }) => {
       </Typography>
       <List>
         {additionalLinks.map((link) => (
-          <ListItem key={link}>
+          <ListItem button onClick={() => onClose()} key={link}>
             <ListItemText primary={link} />
           </ListItem>
         ))}
@@ -257,4 +259,5 @@ const AppMenu = ({ open, onClose }) => {
     </Drawer>
   );
 };
+
 export default AppMenu;
